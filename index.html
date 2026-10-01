@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090b">
+<meta name="description" content="MusicWave — a modern music player demo">
+<title>MusicWave — Music for every moment</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">♪</span><span>MusicWave</span></div>
+    <nav>
+      <button class="nav-item active" data-section="home">⌂ <span>Home</span></button>
+      <button class="nav-item" data-section="search">⌕ <span>Search</span></button>
+      <button class="nav-item" data-section="library">▣ <span>Your Library</span></button>
+    </nav>
+    <div class="side-title">Your playlists</div>
+    <button class="playlist-link" data-playlist="Liked Songs">♥ Liked Songs</button>
+    <button class="playlist-link" data-playlist="Chill Vibes">● Chill Vibes</button>
+    <button class="playlist-link" data-playlist="Workout">● Workout</button>
+    <div class="sidebar-bottom">Demo project<br><span>GitHub Pages ready</span></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="mobile-brand">♪ MusicWave</div>
+      <div class="top-actions">
+        <button id="backBtn" class="round-btn" aria-label="Back">‹</button>
+        <button id="forwardBtn" class="round-btn" aria-label="Forward">›</button>
+        <button id="themeBtn" class="round-btn" aria-label="Toggle theme">☾</button>
+      </div>
+    </header>
+
+    <section id="home" class="section active-section">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">YOUR SOUND. YOUR MOMENT.</p>
+          <h1>Music for every<br><span>moment.</span></h1>
+          <p class="hero-copy">Discover original demo tracks, build playlists, and enjoy a clean music experience.</p>
+          <button class="primary" id="heroPlay">▶ Play something</button>
+        </div>
+        <div class="hero-orb"><div class="orb-ring"></div><div class="orb-note">♪</div></div>
+      </div>
+
+      <div class="section-head"><h2>Trending now</h2><button class="text-btn" data-section="search">See all</button></div>
+      <div id="trendingGrid" class="music-grid"></div>
+
+      <div class="section-head"><h2>Made for you</h2></div>
+      <div class="wide-cards">
+        <div class="mix-card"><div class="mix-art">♫</div><div><small>PERSONAL MIX</small><h3>Late Night Mix</h3><p>Smooth sounds for after dark.</p></div><button class="mini-play" data-mix="Chill Vibes">▶</button></div>
+        <div class="mix-card alt"><div class="mix-art">⚡</div><div><small>ENERGY MIX</small><h3>Power Hour</h3><p>Keep your momentum moving.</p></div><button class="mini-play" data-mix="Workout">▶</button></div>
+      </div>
+    </section>
+
+    <section id="search" class="section">
+      <div class="search-hero">
+        <p class="eyebrow">EXPLORE</p><h1>Find your sound.</h1>
+        <div class="search-box"><span>⌕</span><input id="searchInput" placeholder="Search songs, artists or albums..." autocomplete="off"></div>
+      </div>
+      <div class="section-head"><h2 id="resultsTitle">All songs</h2></div>
+      <div id="searchGrid" class="music-grid"></div>
+    </section>
+
+    <section id="library" class="section">
+      <div class="library-head"><div class="profile-circle">MW</div><div><p class="eyebrow">YOUR LIBRARY</p><h1>Music you love.</h1><p id="libraryCount">0 liked songs</p></div></div>
+      <div class="section-head"><h2>Liked songs</h2></div>
+      <div id="likedGrid" class="music-grid"></div>
+      <div id="emptyLiked" class="empty">♡<h3>No liked songs yet</h3><p>Tap the heart on any song to save it here.</p></div>
+    </section>
+  </main>
+</div>
+
+<div class="player">
+  <div class="now-playing">
+    <img id="playerCover" src="assets/covers/midnight.svg" alt="">
+    <div><strong id="playerTitle">Choose a song</strong><span id="playerArtist">MusicWave</span></div>
+    <button id="likeCurrent" class="heart" aria-label="Like">♡</button>
+  </div>
+  <div class="controls">
+    <div class="control-row">
+      <button id="shuffleBtn">⤨</button><button id="prevBtn">◀◀</button><button id="playBtn" class="play-btn">▶</button><button id="nextBtn">▶▶</button><button id="repeatBtn">↻</button>
+    </div>
+    <div class="progress-row"><span id="currentTime">0:00</span><input id="progress" type="range" min="0" max="100" value="0"><span id="duration">0:00</span></div>
+  </div>
+  <div class="volume"><span>🔊</span><input id="volume" type="range" min="0" max="1" step=".01" value=".75"></div>
+</div>
+<audio id="audio"></audio>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
